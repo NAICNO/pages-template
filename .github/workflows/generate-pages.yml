@@ -30,16 +30,15 @@ jobs:
 
       - name: Build documentation
         run: |
-          sphinx-build -b html documents/ _build/html
-          pwd
-          ls -lh          
+          make clean
+          make html                  
 
       - name: Commit and push to gh-pages
         run: |-
           git config --global user.email "naic-bot@example.com"
           git config --global user.name "naic-bot"
           touch .nojekyll
-          mv _build/html docs
+          mv build/html docs
           touch docs/.nojekyll
           git add -A
           git commit -m "generated using sphinx-build"
