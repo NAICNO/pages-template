@@ -38,6 +38,7 @@ jobs:
           git config --global user.email "naic-bot@example.com"
           git config --global user.name "naic-bot"
           touch .nojekyll
+          rm -rf docs
           mv build/html docs
           touch docs/.nojekyll
           git add -A
@@ -49,5 +50,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           force: true
-          directory: docs
+          directory: docs/html
          
